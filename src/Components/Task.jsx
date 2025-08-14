@@ -10,20 +10,25 @@ const Task = (props) => {
         ...taskStyles,
         textDecoration: task.completed ? "line-through" : "none",
         opacity: task.completed ? 0.5 : 1,
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        padding: 0,
       }}
     >
-      {task.text}
-      <div className="">
-        <Button
-          text={task.completed ? "Undo" : "Done"}
-          handleOnClick={() => completeTask(index)}
-          ownStyle={customButtonStyle}
-        />
-        <Button
-          text={"Remove"}
-          handleOnClick={() => removeTask(index)}
-          ownStyle={customButtonStyle}
-        />
+      <div className="book-card" style={{ width: "100%" }}>
+        <div className="book-title">{task.text}</div>
+        <div className="book-actions">
+          <Button
+            text={task.completed ? "Undo" : "Done"}
+            handleOnClick={() => completeTask(index)}
+            ownStyle={customButtonStyle}
+          />
+          <Button
+            text={"Remove"}
+            handleOnClick={() => removeTask(index)}
+            ownStyle={customButtonStyle}
+          />
+        </div>
       </div>
     </div>
   );

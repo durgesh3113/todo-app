@@ -1,10 +1,10 @@
 export const appStyle = {
   textAlign: "center",
-  backgroundImage: "linear-gradient(to top,#a18cd1 0%,#fbc2eb 100%)",
+  backgroundColor: "transparent",
   fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
   padding: "20px",
   borderRadius: "10px",
-  height: "100vh",
+  minHeight: "100vh",
 };
 
 export const inputStyle = {

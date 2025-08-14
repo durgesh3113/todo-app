@@ -36,12 +36,15 @@ const App = () => {
           style={inputStyle}
           placeholder="Add a new task"
           handleOnChange={(e) => setNewTask(e.target.value)}
+          value={newTask}
         />
         <Button text="+" handleOnClick={addTask} />
       </div>
       <div
         style={{
           gap: "1em",
+          maxWidth: "760px",
+          margin: "1.5em auto",
         }}
       >
         {tasks.map((task, index) => {

@@ -1,0 +1,86 @@
+:root {
+  --bg1: #a18cd1;
+  --bg2: #fbc2eb;
+  --bg3: #fad0c4;
+  --bg4: #ffd1ff;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Book-shaped card */
+.book-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem 1rem 3.25rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Spine */
+.book-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, #7e69c5 0%, #5c47b0 50%, #7e69c5 100%);
+  box-shadow: inset -6px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Pages */
+.book-card::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 8px;
+  bottom: 8px;
+  width: 16px;
+  background: repeating-linear-gradient(
+    to right,
+    #f0f0f0 0,
+    #f0f0f0 2px,
+    #ffffff 2px,
+    #ffffff 4px
+  );
+  border-left: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  border-radius: 2px;
+}
+
+.book-title {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+}
